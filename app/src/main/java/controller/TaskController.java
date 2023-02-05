@@ -67,6 +67,7 @@ public class TaskController {
             statement.setDate(6, new Date(task.getDeadline().getTime()));
             statement.setDate(7, new Date(task.getCreatedAt().getTime()));
             statement.setDate(8, new Date(task.getUpdatedAt().getTime()));
+            statement.setInt(9, task.getId());
             statement.execute();
 
         } catch (Exception ex) {
@@ -77,7 +78,7 @@ public class TaskController {
 
     }
 
-    public void removeById(int taskId) throws SQLException {
+    public void removeById(int taskId) {
 
         String sql = "DELETE FROM tasks WHERE id = ?";
 
