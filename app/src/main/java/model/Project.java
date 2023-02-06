@@ -15,15 +15,20 @@ public class Project {
     private int id;
     private String name;
     private String description;
-    private Date createtAt;
+    private Date createdAt;
     private Date updatedAt;
 
     public Project(int id, String name, String description, Date createtAt, Date updatedAt) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.createtAt = createtAt;
+        this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+    
+    public Project() {
+        this.createdAt = new Date();
+        this.updatedAt = new Date();
     }
 
     public int getId() {
@@ -50,12 +55,12 @@ public class Project {
         this.description = description;
     }
 
-    public Date getCreatetAt() {
-        return createtAt;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreatetAt(Date createtAt) {
-        this.createtAt = createtAt;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     public Date getUpdatedAt() {
@@ -68,7 +73,7 @@ public class Project {
 
     @Override
     public String toString() {
-        return "Project{" + "id=" + id + ", name=" + name + ", description=" + description + ", createtAt=" + createtAt + ", updatedAt=" + updatedAt + '}';
+        return "Project{" + "id=" + id + ", name=" + name + ", description=" + description + ", createtAt=" + createdAt + ", updatedAt=" + updatedAt + '}';
     }
     
     

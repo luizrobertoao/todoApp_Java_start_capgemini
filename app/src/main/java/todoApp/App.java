@@ -3,12 +3,48 @@
  */
 package todoApp;
 
+import controller.ProjectController;
+import controller.TaskController;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import model.Project;
+import model.Task;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+//        ProjectController projectController = new ProjectController();
+//        
+//        Project project = new Project();
+//        project.setName("Test save");
+//        project.setDescription("description");
+//        projectController.save(project);
+//        
+//        List<Project> projects = projectController.getAll();
+//        System.out.println("Total de projetos: " + projects.size());
+
+
+          TaskController taskController = new TaskController();
+          
+//          Task task = new Task();
+//          task.setId(1);
+//          task.setIdProject(2);
+//          task.setName("Criar telas da aplicação com atualização");
+//          task.setDescription("Criar todas as telas do sistema.");
+//          task.setNotes("Sem notas");
+//          task.setIsCompleted(false);
+//          task.setDeadline(new Date());
+//          
+//          taskController.update(task);
+
+//            List<Task> tasks = taskController.getAll(2);
+//            System.out.println("Total de tarefas projeto 2: " + tasks.size());
+
+            taskController.removeById(1);
+        
     }
 }

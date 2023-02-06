@@ -49,7 +49,7 @@ public class TaskController {
     }
 
     public void update(Task task) {
-        String sql = "UPDATE tasks SET idProject = ?, name = ?, description = ?, notes = ?, completed = ?, deadline = ?, createdAt = ?, updatedAt = ?,  WHERE id = ?";
+        String sql = "UPDATE tasks SET idProject = ?, name = ?, description = ?, notes = ?, completed = ?, deadline = ?, createdAt = ?, updatedAt = ?  WHERE id = ?";
 
         Connection connection = null;
         PreparedStatement statement = null;
@@ -58,12 +58,11 @@ public class TaskController {
             connection = ConnectionFactory.getConnection();
             statement = connection.prepareStatement(sql);
 
-            statement.setInt(1, task.getId());
+            statement.setInt(1, task.getIdProject());
             statement.setString(2, task.getName());
             statement.setString(3, task.getDescription());
             statement.setString(4, task.getNotes());
-            statement.setBoolean(4, task.isIsCompleted());
-            statement.setString(5, task.getNotes());
+            statement.setBoolean(5, task.isIsCompleted());
             statement.setDate(6, new Date(task.getDeadline().getTime()));
             statement.setDate(7, new Date(task.getCreatedAt().getTime()));
             statement.setDate(8, new Date(task.getUpdatedAt().getTime()));
