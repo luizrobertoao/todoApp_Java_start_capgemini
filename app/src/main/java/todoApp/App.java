@@ -28,7 +28,7 @@ public class App {
 //        System.out.println("Total de projetos: " + projects.size());
 
 
-          TaskController taskController = new TaskController();
+//          TaskController taskController = new TaskController();
           
 //          Task task = new Task();
 //          task.setId(1);
@@ -44,7 +44,7 @@ public class App {
 //            List<Task> tasks = taskController.getAll(2);
 //            System.out.println("Total de tarefas projeto 2: " + tasks.size());
 
-            taskController.removeById(1);
+//            taskController.removeById(1);
         
     }
 }
