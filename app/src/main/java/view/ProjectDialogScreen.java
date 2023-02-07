@@ -51,6 +51,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         jLabelToolBarTitle.setText("Projeto");
 
         jLabelToolBarSave.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabelToolBarSave.setForeground(new java.awt.Color(255, 255, 255));
         jLabelToolBarSave.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelToolBarSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/check.png"))); // NOI18N
         jLabelToolBarSave.setText(" Salvar");
