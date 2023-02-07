@@ -39,7 +39,8 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         jLabelName = new javax.swing.JLabel();
         jTextFieldName = new javax.swing.JTextField();
         jLabelDescription = new javax.swing.JLabel();
-        jTextFieldDescription = new javax.swing.JTextField();
+        jScrollPaneDescription = new javax.swing.JScrollPane();
+        jTextAreaDescription = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -99,21 +100,23 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         jLabelDescription.setForeground(new java.awt.Color(0, 0, 0));
         jLabelDescription.setText("Descrição");
 
-        jTextFieldDescription.setBackground(new java.awt.Color(255, 255, 255));
-        jTextFieldDescription.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextFieldDescription.setForeground(new java.awt.Color(0, 0, 0));
+        jTextAreaDescription.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAreaDescription.setColumns(20);
+        jTextAreaDescription.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextAreaDescription.setRows(5);
+        jScrollPaneDescription.setViewportView(jTextAreaDescription);
 
         javax.swing.GroupLayout jPanelProjectLayout = new javax.swing.GroupLayout(jPanelProject);
         jPanelProject.setLayout(jPanelProjectLayout);
         jPanelProjectLayout.setHorizontalGroup(
             jPanelProjectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelProjectLayout.createSequentialGroup()
+            .addGroup(jPanelProjectLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelProjectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextFieldDescription)
-                    .addComponent(jLabelName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextFieldName, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelDescription, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelProjectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextFieldName, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                    .addComponent(jLabelDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneDescription))
                 .addContainerGap())
         );
         jPanelProjectLayout.setVerticalGroup(
@@ -126,7 +129,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelDescription)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                .addComponent(jScrollPaneDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -159,12 +162,16 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
     private void jLabelToolBarSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelToolBarSaveMouseClicked
         // TODO add your handling code here:
 
-        Project project = new Project();
+        try {
+            Project project = new Project();
         project.setName(jTextFieldName.getText());
-        project.setDescription(jTextFieldDescription.getText());
+        project.setDescription(jTextAreaDescription.getText());
 
         controller.save(project);
         JOptionPane.showMessageDialog(rootPane, "Projeto salvo com sucesso.");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e.getMessage());
+        }
 
         this.dispose();
     }//GEN-LAST:event_jLabelToolBarSaveMouseClicked
@@ -180,7 +187,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Java swing".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -218,7 +225,8 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelToolBarTitle;
     private javax.swing.JPanel jPanelProject;
     private javax.swing.JPanel jPanelToolBar;
-    private javax.swing.JTextField jTextFieldDescription;
+    private javax.swing.JScrollPane jScrollPaneDescription;
+    private javax.swing.JTextArea jTextAreaDescription;
     private javax.swing.JTextField jTextFieldName;
     // End of variables declaration//GEN-END:variables
 }
