@@ -16,8 +16,8 @@ import model.Task;
  */
 public class TaskTableModel extends AbstractTableModel {
     
-    String[] columns = {"Nome", "Descrição", "Prazo", "Tarefa Concluída", "Editar", "Excluir"};
-    List<Task> tasks = new ArrayList();
+    private String[] columns = {"Nome", "Descrição", "Prazo", "Tarefa Concluída", "Editar", "Excluir"};
+    private List<Task> tasks = new ArrayList<>();
     
     @Override
     public int getRowCount() {
@@ -44,7 +44,7 @@ public class TaskTableModel extends AbstractTableModel {
             return Object.class;
         }
         
-        return this.getValueAt(0, columnIndex).getClass();
+        return getValueAt(0, columnIndex).getClass();
     }
     
     @Override
@@ -52,7 +52,7 @@ public class TaskTableModel extends AbstractTableModel {
         
         switch (columnIndex) {
             case 0:                
-                return tasks.get(rowIndex).getName();            
+                return tasks.get(rowIndex).getName();
             case 1:                
                 return tasks.get(rowIndex).getDescription();
             case 2:
