@@ -14,16 +14,16 @@ import model.Task;
  *
  * @author luizr
  */
-public class TaskTableModel extends AbstractTableModel{
+public class TaskTableModel extends AbstractTableModel {
     
     String[] columns = {"Nome", "Descrição", "Prazo", "Tarefa Concluída", "Editar", "Excluir"};
     List<Task> tasks = new ArrayList();
-
+    
     @Override
     public int getRowCount() {
         return tasks.size();
     }
-
+    
     @Override
     public int getColumnCount() {
         return columns.length;
@@ -40,20 +40,20 @@ public class TaskTableModel extends AbstractTableModel{
     
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-        if(tasks.isEmpty()) {
+        if (tasks.isEmpty()) {
             return Object.class;
         }
         
         return this.getValueAt(0, columnIndex).getClass();
     }
-
+    
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         
         switch (columnIndex) {
-            case 0:              
-                return tasks.get(rowIndex).getName();               
-            case 1:               
+            case 0:                
+                return tasks.get(rowIndex).getName();            
+            case 1:                
                 return tasks.get(rowIndex).getDescription();
             case 2:
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -73,19 +73,17 @@ public class TaskTableModel extends AbstractTableModel{
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         tasks.get(rowIndex).setIsCompleted((boolean) aValue);
     }
-
+    
     public String[] getColumns() {
         return columns;
     }
-
+    
     public List<Task> getTasks() {
         return tasks;
     }
-
+    
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }
-    
-    
     
 }
